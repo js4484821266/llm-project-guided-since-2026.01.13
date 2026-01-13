@@ -25,5 +25,3 @@ for key in DATA:
         )
     with open(f"json/{law}.json", "w", encoding="utf-8") as f:
         json.dump(v, f, ensure_ascii=False, indent=4)
-if __name__ == "__main__":
-    pass
