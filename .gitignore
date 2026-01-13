@@ -209,3 +209,5 @@ __marimo__/
 # ----- ARBITRARY PATHS TO IGNORE -----
 data/
 data.json
+qna_json_gen_manual.py
+qna.json
