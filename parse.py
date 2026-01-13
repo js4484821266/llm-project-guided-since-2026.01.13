@@ -2,10 +2,10 @@ from load_data import DATA
 from pathlib import Path
 import re, json
 
+v = []
 for key in DATA:
     law = article_n = article_title = article_text = None
     law = Path(key).stem
-    v = []
     for item in DATA[key]:
         i = re.split(r"조 |\) ", item, maxsplit=1)
         article_text = i[1]
@@ -18,10 +18,11 @@ for key in DATA:
             article_title = ""
         v.append(
             {
+                "law": law,
                 "article_n": article_n,
                 "article_title": article_title,
                 "article_text": article_text,
             }
         )
-    with open(f"json/{law}.json", "w", encoding="utf-8") as f:
-        json.dump(v, f, ensure_ascii=False, indent=4)
+with open(f"data.json", "w", encoding="utf-8") as f:
+    json.dump(v, f, ensure_ascii=False, indent=4)
